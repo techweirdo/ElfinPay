@@ -586,6 +586,16 @@ font-family: 'Open Sans', sans-serif;
 END. Download Area
 ===========================*/
 
+
+.bgWideImage img{
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+
 /*===========================
 2.7 Pricing Area
 ===========================*/
@@ -633,15 +643,14 @@ END. Download Area
     letter-spacing: 0;
 }
 
-ul.prc-list {
-    margin: 20px 0px 22px;
-}
-
-ul.prc-list li {
+.prc-list p{
+    margin: 0px 22px 0px 22px !important;
+    text-align: center;
     font-size: 18px;
     color: #272727;
     letter-spacing: 0;
-    line-height: 43px;
+    line-height: 20px;
+   
 }
 
 /*===========================
@@ -660,8 +669,10 @@ END Pricing Area
 }
 
 .subscribe_form .input {}
-
-.subscribe_form .input input {
+.retailer-select {
+    padding-left: 0px !important;
+}
+.subscribe_form .input input, select {
     width: 100%;
     height: 50px;
     border: 2px solid #fff;
@@ -798,7 +809,9 @@ END Team Area
 2.10 Achivement Area
 ===========================*/
 
-.achivement-area {}
+.achivement-area {
+    min-height: 290px;
+}
 
 .achive-single {}
 
@@ -1019,7 +1032,7 @@ END Map Area
     padding: 90px 0px 100px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
     position: relative;
-    margin-top: -400px;
+    /* margin-top: -400px; */
 }
 
 .contact-flex-container {
