@@ -4,7 +4,7 @@
 <head>
     <!--- Basic Page Needs  -->
     <meta charset="utf-8">
-    <title>ElfinPay || App Landing Html Template</title>
+    <title>ElfinPay || Remittance & BillPay</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Mobile Specific Meta  -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -915,6 +915,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 successful response including new submission
                 .
                 */
+                sendMail($("#sub_name").val(), '', $("#sub_mob").val(),  $("#sub_pin").val(), $("#sub_retailer").val(), 'New  '+$("#sub_retailer").val()+' request from Website')
                 $("#modal_title").html("Thank you for registering with ElfinPay");
                 $("#modal_desc").html("Our customer care executive will get in touch with you shortly.");
                 $("#dynamic_modal").show();
@@ -948,6 +949,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 successful response including new submission
                 .
                 */
+                sendMail($("#sub_name1").val(), '', $("#sub_mob1").val(),  $("#sub_pin1").val(), $("#sub_retailer1").val(), 'New '+$("#sub_retailer1").val()+' request from Website')
                 $("#modal_title").html("Thank you for registering with ElfinPay");
                 $("#modal_desc").html("Our customer care executive will get in touch with you shortly.");
                 $("#dynamic_modal").show();
@@ -995,6 +997,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                 successful response including new submission
                 .
                 */
+                sendMail($("#cont_name").val(), $("#cont_email").val(), $("#cont_mob").val(),  $("#msg").val(), '', 'New Contact Request from Website')
                 $("#modal_title").html("Thank you for contacting ElfinPay");
                 $("#modal_desc").html("Our customer care executive will get in touch with you shortly.");
                 $("#dynamic_modal").show();
@@ -1006,6 +1009,22 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             $("#dynamic_modal").hide();
         }
         $("#dynamic_modal").hide();
+
+    function sendMail(name, email, mob, msg, type, sub) {
+
+            var request = $.ajax({
+                url: 'http://elfinpay.com/elfinpay_mailer/mail.php',
+                type: 'POST',
+                data: JSON.stringify({ email: email, mob: mob, name: name, msg: msg, type: type, subject: sub }) ,
+                contentType: 'application/json; charset=utf-8'
+            });
+            request.done(function(data) {
+                // your success code here
+            });
+            request.fail(function(jqXHR, textStatus) {
+                // your failure code here
+            });        
+    }        
     </script>
     <!-- google map activation end -->
     <!-- Scripts -->
@@ -1059,7 +1078,27 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     padding-top: 25px;
     z-index: 999;
 }
-
+#unsubscribe {
+        width: 130px;
+    height: 40px;
+    background: #ff6818;
+    border-radius: 20px;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    border: none;
+    letter-spacing: 0.01em;
+    transition: all 0.3s ease 0s;
+    margin-top: 50px;
+}
+.title {
+    font-size: 30px;
+    line-height: 40px;
+}
+.subtitle {
+    font-size 20px;
+}
 /* 
 svg {
 	max-width: 90%;
